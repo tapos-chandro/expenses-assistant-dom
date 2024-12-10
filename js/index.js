@@ -1,6 +1,23 @@
 
 
+document.getElementById('assistant-tab').addEventListener('click', function() {
+    removeMultipleClass('history-tab','bg-gradient-to-r from-blue-500 to-purple-600 text-white')
+    addClassList('assistant-tab','bg-gradient-to-r from-blue-500 to-purple-600 text-white')
+    removeMultipleClass('assistant-tab', 'text-[#4c5663]')
+    addClassList('history-section', 'hidden')
+    removeMultipleClass('expense-form', 'hidden')
+    
+})
 
+document.getElementById('history-tab').addEventListener('click', function(){
+    addClassList('history-tab','bg-gradient-to-r from-blue-500 to-purple-600 text-white')
+    removeMultipleClass('assistant-tab', 'bg-gradient-to-r from-blue-500 to-purple-600 text-white')
+    addClassList('assistant-tab', 'text-[#4c5663]')
+    addClassList('expense-form', 'hidden')
+    removeMultipleClass('history-section', 'hidden')
+   
+    
+})
 
 
 
@@ -16,38 +33,38 @@ const calculate = document.getElementById('calculate').addEventListener('click',
  // income input validations 
     
     if(!income > 0  ){
-        getRemoveHiddenClass('income-error')
+        removeMultipleClass('income-error','hidden')
         return
     }else{
-        getAddClass('income-error')
+        addClassList('income-error', 'hidden')
     }
  // software input validations 
     if(!software > 0  ){
-        getRemoveHiddenClass('software-error')
+        removeMultipleClass('software-error', 'hidden')
         return
     }else{
-        getAddClass('software-error')
+        addClassList('software-error', 'hidden')
     }
     // courses input validations 
     if(!courses > 0  ){
-        getRemoveHiddenClass('courses-error')
+        removeMultipleClass('courses-error', 'hidden')
         return
     }else{
-        getAddClass('courses-error')
+        addClassList('courses-error', 'hidden')
     }
     // internet input validations 
     if(!internet > 0  ){
-        getRemoveHiddenClass('internet-error')
+        removeMultipleClass('internet-error', 'hidden')
         return
     }else{
-        getAddClass('internet-error')
+        addClassList('internet-error', 'hidden')
     }
 
     const totalExpansive = software + courses + internet
     const balance = income - totalExpansive
 
     if(income < totalExpansive){
-        getRemoveHiddenClass('income-error')
+        removeMultipleClass('income-error', 'hidden')
         return
     }
 
@@ -69,7 +86,7 @@ const calculate = document.getElementById('calculate').addEventListener('click',
     `
     historyList.appendChild(div)
 
-    getRemoveHiddenClass('results')
+    removeMultipleClass('results', 'hidden')
 
 })
 
@@ -104,6 +121,5 @@ const calculateSaving = document.getElementById('calculate-savings').addEventLis
     </div>
     `
     historyList.appendChild(div)
-    
 
 })
